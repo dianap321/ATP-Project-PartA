@@ -1,5 +1,6 @@
 package algorithms.mazeGenerators;
 
+//Maze class
 public class Maze {
 
     private Position StartPosition;

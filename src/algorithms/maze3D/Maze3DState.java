@@ -1,4 +1,4 @@
-package algorithms.Maze3D;
+package algorithms.maze3D;
 
 import algorithms.search.AState;
 

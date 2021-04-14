@@ -2,6 +2,7 @@ package algorithms.mazeGenerators;
 
 public class EmptyMazeGenerator extends AMazeGenerator {
 
+    //Initiating all cells to 0 (passage).
     @Override
     public Maze generate(int rows, int columns) {
         int[][] matrix = new int[rows][columns];

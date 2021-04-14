@@ -3,12 +3,8 @@ package algorithms.mazeGenerators;
 import java.util.LinkedList;
 import java.util.Random;
 
+//Our maze generator uses Prim's algorithm.
 public class MyMazeGenerator extends AMazeGenerator {
-    /**
-     * @param rows
-     * @param columns
-     * @return
-     */
 
     @Override
     public Maze generate(int rows, int columns) throws Exception{
@@ -28,10 +24,11 @@ public class MyMazeGenerator extends AMazeGenerator {
         int y = new Random().nextInt(columns);
         list.add(new Position(x, y));
         while (!list.isEmpty()){
-            Position chosen = list.remove(new Random().nextInt(list.size()));
-            LinkedList<Position> neighbors1 = new LinkedList<Position>();
-            LinkedList<Position> neighbors0 = new LinkedList<Position>();
-            if (chosen.getRowIndex()-1 >= 0) {
+            Position chosen = list.remove(new Random().nextInt(list.size())); //choose a cell at random so that we get an intricate maze
+            LinkedList<Position> neighbors1 = new LinkedList<Position>(); //contains all neighboring walls.
+            LinkedList<Position> neighbors0 = new LinkedList<Position>(); // Indicates how many neighboring passages there are so that it helps us decide whether the current cell should be a passage.
+
+            if (chosen.getRowIndex()-1 >= 0) { //checking if in range.
                 if (m[chosen.getRowIndex() - 1][chosen.getColumnIndex()] == 1)
                     neighbors1.add(new Position(chosen.getRowIndex() - 1, chosen.getColumnIndex()));
                 else
@@ -55,13 +52,13 @@ public class MyMazeGenerator extends AMazeGenerator {
                 else
                     neighbors0.add(new Position(chosen.getRowIndex(), chosen.getColumnIndex() - 1));
             }
-            if (neighbors0.size() <= 1){
+            if (neighbors0.size() <= 1){ //if there is 1 neighbor or less we want the cell to be a passage according to the algorithm
                 m[chosen.getRowIndex()][chosen.getColumnIndex()] = 0;
                 list.addAll(neighbors1);
             }
 
         }
-        int GoalInd = 0;
+        int GoalInd = 0; //helper to decide the goal position's column (we decided it will be in the last row).
         for (int i = 0; i < columns; i++) {
             if (m[rows-1][i]==0){
                 GoalInd = i;
@@ -72,19 +69,4 @@ public class MyMazeGenerator extends AMazeGenerator {
         Maze ret = new Maze(new Position(x, y), new Position(rows-1, GoalInd), m);
         return ret;
     }
-
-//    public Maze generate(int rows, int columns) {
-//        int [][] m = new int[rows][columns];
-//
-//        m[0][0]=0; m[0][1]=0; m[0][2]=0; m[0][3]=0; m[0][4]=0;
-//        m[1][0]=0; m[1][1]=0; m[1][2]=1; m[1][3]=1; m[1][4]=0;
-//        m[2][0]=1; m[2][1]=0; m[2][2]=0; m[2][3]=1; m[2][4]=0;
-//        m[3][0]=1; m[3][1]=1; m[3][2]=0; m[3][3]=0; m[3][4]=0;
-//
-//
-//        Position pStart = new Position(0,0);
-//        Position pGoal = new Position(2,4);
-//        Maze maze = new Maze(pStart, pGoal, m);
-//        return maze;
-//    }
 }

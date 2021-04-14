@@ -1,5 +1,6 @@
 package algorithms.mazeGenerators;
 
+//Abstract maze generation class.
 public abstract class AMazeGenerator implements IMazeGenerator {
 
     @Override

@@ -1,15 +1,10 @@
 package test;
 
-import algorithms.Maze3D.IMaze3DGenerator;
-import algorithms.Maze3D.Maze3D;
-import algorithms.Maze3D.MyMaze3DGenerator;
-import algorithms.Maze3D.SearchableMaze3D;
-import algorithms.mazeGenerators.IMazeGenerator;
-import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.MyMazeGenerator;
+import algorithms.maze3D.IMaze3DGenerator;
+import algorithms.maze3D.Maze3D;
+import algorithms.maze3D.MyMaze3DGenerator;
+import algorithms.maze3D.SearchableMaze3D;
 import algorithms.search.*;
-
-import java.util.ArrayList;
 
 public class RunSearchOnMaze3D {
     public static void main(String[] args) {

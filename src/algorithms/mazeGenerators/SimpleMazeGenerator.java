@@ -3,6 +3,9 @@ package algorithms.mazeGenerators;
 import java.util.Random;
 
 public class SimpleMazeGenerator extends AMazeGenerator {
+
+    //Our simple maze's starting point is at [0, 0] and goal point is the opposite corner.
+    //We defined it so that there is a path through the first row and last column.
     @Override
     public Maze generate(int rows, int columns) {
         int [][] m = new int[rows][columns];

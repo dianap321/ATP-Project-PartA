@@ -1,6 +1,4 @@
-package algorithms.Maze3D;
-
-import algorithms.mazeGenerators.Position;
+package algorithms.maze3D;
 
 public class Maze3D {
     private Position3D StartPosition;
