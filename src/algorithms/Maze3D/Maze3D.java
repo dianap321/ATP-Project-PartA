@@ -13,7 +13,7 @@ public class Maze3D {
         this.maze = maze;
     }
 
-    public int[][][] getMaze() {
+    public int[][][] getMap() {
         return maze;
     }
 

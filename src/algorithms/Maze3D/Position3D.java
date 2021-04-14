@@ -1,5 +1,7 @@
 package algorithms.Maze3D;
 
+import java.util.Objects;
+
 public class Position3D {
     private int row;
     private int column;
@@ -26,5 +28,20 @@ public class Position3D {
     @Override
     public String toString() {
         return "{" + depth + "," + row + "," + column + "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position3D that = (Position3D) o;
+        return row == that.row &&
+                column == that.column &&
+                depth == that.depth;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column, depth);
     }
 }
