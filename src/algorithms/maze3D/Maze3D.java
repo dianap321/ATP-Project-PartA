@@ -1,5 +1,6 @@
 package algorithms.maze3D;
 
+//3D Maze class.
 public class Maze3D {
     private Position3D StartPosition;
     private Position3D GoalPosition;

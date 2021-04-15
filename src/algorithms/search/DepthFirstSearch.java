@@ -2,18 +2,17 @@ package algorithms.search;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Stack;
 
 public class DepthFirstSearch extends ASearchingAlgorithm{
+
     @Override
     public Solution solve(ISearchable s) throws Exception{
-        isValidInput(s);
+        isValidInput(s); //Checking if input is not null.
         Stack<AState> open = new Stack();
-        //ArrayList<AState> close = new ArrayList<>();
         HashSet<AState> close = new HashSet<>();
         open.push(s.getStartState());
-        AState top = open.peek();
+        AState top;
         while (!open.empty()){
             top = open.peek();
             if(top.equals(s.getGoalState())){

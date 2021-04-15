@@ -20,6 +20,7 @@ public class Maze3DState extends AState {
         return z;
     }
 
+    //Helper function; strips the String representation of State, returns an array: [depth, row, column].
     private String[] getNums(){
         String stateNums = this.getState().substring(1, this.getState().length() - 1);
         String[] Nums = stateNums.split(",");

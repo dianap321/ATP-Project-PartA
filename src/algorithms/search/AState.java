@@ -5,7 +5,7 @@ import java.util.Objects;
 public abstract class AState {
     private String state;
     private int cost;
-    private AState cameFrom;
+    private AState cameFrom; //To help recreate the path
 
     public AState(String state, int cost, AState cameFrom) {
         this.state = state;
@@ -30,25 +30,15 @@ public abstract class AState {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public int getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
 
     public AState getCameFrom() {
         return cameFrom;
     }
 
-    public void setCameFrom(AState cameFrom) {
-        this.cameFrom = cameFrom;
-    }
 
     @Override
     public String toString() {

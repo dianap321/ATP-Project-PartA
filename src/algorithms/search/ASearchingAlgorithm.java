@@ -15,7 +15,7 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
         if (problem==null)
             throw new Exception("Can't solve an empty problem.");
     }
-
+    //Every time we finish handling a cell we up the count.
     protected void setVisitedNodes() {
         this.visitedNodes++;
     }
@@ -25,11 +25,12 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
         return visitedNodes;
     }
 
+    //We call this method when we reach the goal state (with it as a parameter).
     public Solution solutionPath(AState state){
         Solution solution = new Solution();
         while (state != null){
-            solution.addToStart(state);
-            state = state.getCameFrom();
+            solution.addToStart(state); //We start from the end of the path so we add to the start.
+            state = state.getCameFrom();//After we've added the current state we want to add the one that led us there.
         }
         return solution;
     }

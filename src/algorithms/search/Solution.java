@@ -17,6 +17,7 @@ public class Solution {
         this.solutionPath = sol;
     }
 
+    //We need this function because we develop the solution backwards from the end.
     public void addToStart(AState s){
         solutionPath.add(0, s);
     }

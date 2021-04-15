@@ -7,17 +7,12 @@ import java.util.Queue;
 
 public class BreadthFirstSearch extends ASearchingAlgorithm {
 
-//    public void setList(){
-//        openList = new LinkedList<>();
-//    }
-
     public Solution solve(ISearchable problem) throws Exception{
         isValidInput(problem);
         Queue<AState> openList = new LinkedList<>();
         openList.add(problem.getStartState());
         HashSet<AState> close = new HashSet<>();
         while (!openList.isEmpty()){
-//            AState state = popOpenList();
             AState state = openList.poll();
             setVisitedNodes();
             close.add(state);

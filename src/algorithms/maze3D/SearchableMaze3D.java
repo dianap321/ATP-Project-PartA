@@ -15,14 +15,14 @@ public class SearchableMaze3D implements ISearchable {
     @Override
     public AState getStartState() {
         Position3D s = m.getStartPosition();
-        Maze3DState MazeS = new Maze3DState(s.toString(), 0, null);
+        Maze3DState MazeS = new Maze3DState(s.toString(), 0, null); //reaching the start state didn't cost us anything.
         return MazeS;
     }
 
     @Override
     public AState getGoalState() {
         Position3D g = m.getGoalPosition();
-        Maze3DState MazeG = new Maze3DState(g.toString(), 0, null);
+        Maze3DState MazeG = new Maze3DState(g.toString(), 0, null); //When we just want the goal state for comparison we don't need it's cost or parent.
         return MazeG;
     }
 
@@ -33,6 +33,8 @@ public class SearchableMaze3D implements ISearchable {
         int r = ms.getR();
         int c = ms.getC();
         ArrayList<AState> neighbors = new ArrayList<AState>();
+
+        //Here we have 6 options, no diagonals.
         //in
         checkPosition(neighbors, ms, d-1, r, c, 10);
         //out
@@ -44,11 +46,13 @@ public class SearchableMaze3D implements ISearchable {
         //right
         checkPosition(neighbors, ms, d, r, c+1, 10);
         //left
-
         checkPosition(neighbors, ms, d, r, c-1, 10);
+
         return neighbors;
     }
 
+    //This helper function helps us check if a position is in range and if there is a passage.
+    //If so, we create a state out of this position and add it to the neighbors list.
     public boolean checkPosition(ArrayList<AState> list, Maze3DState parent, int d, int r, int c, int cost){
         if (!(d<0 || r<0 || c<0 || d>m.getMap().length-1 || r>m.getMap()[0].length-1 || c>m.getMap()[0][0].length-1)){
             if (m.getMap()[d][r][c] == 0){
